@@ -8,14 +8,18 @@
 
 import Foundation
 
-struct Repo {
-    let title: String
-    let description: String
-    let url: String
+import ObjectMapper
+
+struct Repo: Mappable {
+    var title: String!
+    var description: String!
+    var url: String!
     
-    init(title: String, description: String, url: String) {
-        self.title = title
-        self.description = description
-        self.url = url
+    init?(map: Map) { }
+    
+    mutating func mapping(map: Map) {
+        title <- map["name"]
+        description <- map["description"]
+        url <- map["html_url"]
     }
 }
