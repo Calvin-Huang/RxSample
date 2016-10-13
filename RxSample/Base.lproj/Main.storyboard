@@ -91,6 +91,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="navigationBar" destination="QDJ-rN-Wd7" id="IOJ-hm-8VV"/>
                         <outlet property="searchBar" destination="uZi-Ki-0ln" id="aEn-F2-efy"/>
                         <outlet property="tableView" destination="6EN-D6-j7I" id="OZz-iP-K8e"/>
                     </connections>
