@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()

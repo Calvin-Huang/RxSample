@@ -16,6 +16,7 @@
 		1800F4CF1DAF3208001E61CA /* RxSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800F4CE1DAF3208001E61CA /* RxSampleUITests.swift */; };
 		1800F4DF1DAF34D5001E61CA /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800F4DE1DAF34D5001E61CA /* API.swift */; };
 		1800F4E11DAF363A001E61CA /* Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800F4E01DAF363A001E61CA /* Bootstrap.swift */; };
+		18DB924B1DAF4044005B7EAD /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB924A1DAF4044005B7EAD /* RepoCell.swift */; };
 		6188DAFBC8B73825B9405C05 /* Pods_RxSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359532BCB6DA5ED9CE548ABA /* Pods_RxSample.framework */; };
 		96D230043CB2B16B7C70304B /* Pods_RxSampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1654ED987F56CB84DEFFD1E9 /* Pods_RxSampleUITests.framework */; };
 		ABEBDD286B430EB2C2BED857 /* Pods_RxSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C1C7FD135177F3BE1FA441 /* Pods_RxSampleTests.framework */; };
@@ -56,6 +57,7 @@
 		1800F4D01DAF3208001E61CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1800F4DE1DAF34D5001E61CA /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		1800F4E01DAF363A001E61CA /* Bootstrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bootstrap.swift; sourceTree = "<group>"; };
+		18DB924A1DAF4044005B7EAD /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		359532BCB6DA5ED9CE548ABA /* Pods_RxSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C76558BAF225576172C938 /* Pods-RxSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSampleTests/Pods-RxSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		39F9EAE561C59EA19A5E0BD7 /* Pods-RxSampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSampleUITests/Pods-RxSampleUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		1800F4AD1DAF3207001E61CA /* RxSample */ = {
 			isa = PBXGroup;
 			children = (
+				18DB92491DAF4032005B7EAD /* Views */,
 				1800F4DD1DAF34C5001E61CA /* Service */,
 				1800F4AE1DAF3207001E61CA /* AppDelegate.swift */,
 				1800F4B01DAF3207001E61CA /* ViewController.swift */,
@@ -154,6 +157,14 @@
 				1800F4DE1DAF34D5001E61CA /* API.swift */,
 			);
 			name = Service;
+			sourceTree = "<group>";
+		};
+		18DB92491DAF4032005B7EAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18DB924A1DAF4044005B7EAD /* RepoCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		665F2B72276474617411DB32 /* Frameworks */ = {
@@ -463,6 +474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18DB924B1DAF4044005B7EAD /* RepoCell.swift in Sources */,
 				1800F4E11DAF363A001E61CA /* Bootstrap.swift in Sources */,
 				1800F4B11DAF3207001E61CA /* ViewController.swift in Sources */,
 				1800F4DF1DAF34D5001E61CA /* API.swift in Sources */,
@@ -539,6 +551,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -588,6 +601,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
