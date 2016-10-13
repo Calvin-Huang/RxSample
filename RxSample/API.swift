@@ -21,7 +21,7 @@ let endpointClosure = { (target: GitHub) -> Endpoint<GitHub> in
     }
 }
 
-let GitHubProvider = MoyaProvider<GitHub>(endpointClosure: endpointClosure, plugins:  [NetworkLoggerPlugin(verbose: true)])
+let GitHubProvider = RxMoyaProvider<GitHub>(endpointClosure: endpointClosure, plugins:  [NetworkLoggerPlugin(verbose: true)])
 
 enum GitHub {
     case searchRepo(String)

@@ -8,6 +8,8 @@
 
 import UIKit
 
+import RxSwift
+
 class RepoCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
@@ -15,11 +17,15 @@ class RepoCell: UITableViewCell {
     
     var url: URL?
     
-    override func awakeFromNib() {
-        browseButton.addTarget(self, action: #selector(browseButtonClicked(_:)), for: .touchUpInside)
+    var model: Repo! {
+        didSet {
+            titleLabel.text = model.title
+            descriptionLabel.text = model.description
+            url = URL(string: model.url)
+        }
     }
     
-    weak var viewController: UIViewController?
+    var viewController: UIViewController?
     
     func browseButtonClicked(_: AnyObject) {
         guard let url = url else { return }
