@@ -9,7 +9,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewViewController" customModule="RxSample" customModuleProvider="target">
             <connections>
+                <outlet property="redoButton" destination="aiI-Fk-e75" id="wTE-Fu-MXm"/>
+                <outlet property="undoButton" destination="g8U-Cq-feD" id="rCY-SQ-VK8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="83d-tQ-jBh" id="Uf6-2n-RrX"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,12 +25,24 @@
                         <constraint firstAttribute="height" constant="64" id="XIB-tv-Kgg"/>
                     </constraints>
                     <items>
-                        <navigationItem title="Title" id="Lxg-3R-gm4">
+                        <navigationItem id="Lxg-3R-gm4">
                             <leftBarButtonItems>
-                                <barButtonItem systemItem="undo" id="g8U-Cq-feD"/>
-                                <barButtonItem systemItem="redo" id="aiI-Fk-e75"/>
+                                <barButtonItem enabled="NO" systemItem="undo" id="g8U-Cq-feD">
+                                    <connections>
+                                        <action selector="undoButtonClicked:" destination="-1" id="ajl-cY-DXA"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem enabled="NO" systemItem="redo" id="aiI-Fk-e75">
+                                    <connections>
+                                        <action selector="redoButtonClicked:" destination="-1" id="LQ0-Gg-gRK"/>
+                                    </connections>
+                                </barButtonItem>
                             </leftBarButtonItems>
-                            <barButtonItem key="rightBarButtonItem" systemItem="stop" id="PH4-Bg-N42"/>
+                            <barButtonItem key="rightBarButtonItem" systemItem="stop" id="PH4-Bg-N42">
+                                <connections>
+                                    <action selector="dismissButtonClicked:" destination="-1" id="RmA-1V-rZA"/>
+                                </connections>
+                            </barButtonItem>
                         </navigationItem>
                     </items>
                 </navigationBar>

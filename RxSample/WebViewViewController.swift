@@ -9,11 +9,15 @@
 import UIKit
 
 class WebViewViewController: UIViewController {
+    @IBOutlet var webView: UIWebView!
+    @IBOutlet var undoButton: UIBarButtonItem!
+    @IBOutlet var redoButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        webView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +26,23 @@ class WebViewViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func dismissButtonClicked(_: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
+    
+    @IBAction func undoButtonClicked(_: AnyObject) {
+        webView.goBack()
+    }
+    
+    @IBAction func redoButtonClicked(_: AnyObject) {
+        webView.goForward()
+    }
 
+}
+
+extension WebViewViewController: UIWebViewDelegate {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        undoButton.isEnabled = webView.canGoBack
+        redoButton.isEnabled = webView.canGoForward
+    }
 }
