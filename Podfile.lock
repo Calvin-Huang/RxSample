@@ -1,0 +1,74 @@
+PODS:
+  - Alamofire (4.0.1)
+  - DynamicColor (3.1.0)
+  - Moya (8.0.0-beta.2):
+    - Moya/Core (= 8.0.0-beta.2)
+  - Moya-ObjectMapper/Core (1.4):
+    - Moya
+    - ObjectMapper
+  - Moya-ObjectMapper/RxSwift (1.4):
+    - Moya-ObjectMapper/Core
+    - Moya/RxSwift
+    - RxSwift
+  - Moya/Core (8.0.0-beta.2):
+    - Alamofire (~> 4.0.0)
+    - Result
+  - Moya/RxSwift (8.0.0-beta.2):
+    - Moya/Core
+    - RxSwift
+  - Nimble (5.0.0)
+  - ObjectMapper (2.0.0)
+  - Quick (0.10.0)
+  - Realm (2.0.1):
+    - Realm/Headers (= 2.0.1)
+  - Realm/Headers (2.0.1)
+  - RealmSwift (2.0.1):
+    - Realm (= 2.0.1)
+  - Result (3.0.0)
+  - RxCocoa (3.0.0-beta.2):
+    - RxSwift (~> 3.0.0-beta.2)
+  - RxSwift (3.0.0-beta.2)
+  - SnapKit (3.0.1)
+  - Socket.IO-Client-Swift (8.0.2)
+
+DEPENDENCIES:
+  - DynamicColor (~> 3.0)
+  - Moya (= 8.0.0-beta.2)
+  - Moya-ObjectMapper/RxSwift (from `https://github.com/ivanbruel/Moya-ObjectMapper`)
+  - Nimble
+  - ObjectMapper (~> 2.0)
+  - Quick
+  - RealmSwift
+  - RxCocoa (~> 3.0.0-beta.2)
+  - RxSwift (~> 3.0.0-beta.2)
+  - SnapKit (~> 3.0)
+  - Socket.IO-Client-Swift
+
+EXTERNAL SOURCES:
+  Moya-ObjectMapper:
+    :git: https://github.com/ivanbruel/Moya-ObjectMapper
+
+CHECKOUT OPTIONS:
+  Moya-ObjectMapper:
+    :commit: b0ea096d5c77371be2ca1afecff59371a112c11a
+    :git: https://github.com/ivanbruel/Moya-ObjectMapper
+
+SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  DynamicColor: 4dec283a881f7f9d9f3bc88fb5f306724242575f
+  Moya: 920d40f738e6f4ece84010cec701bb9693be8251
+  Moya-ObjectMapper: d5ac1aafdc31f2b50620ae78b8d4cdefd0504791
+  Nimble: 56fc9f5020effa2206de22c3dd910f4fb011b92f
+  ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
+  Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
+  Realm: 0557ee0e4ab4f0936c90e370056d1ed6265f93d6
+  RealmSwift: 64e00af79bdcd7d2a7a23fdc1cb3faf22b80ae4c
+  Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
+  RxCocoa: 1dd105d8a4e18034ccd7bd6d136445363ce67c8e
+  RxSwift: 0ea939d7d97cb70657190ffde8dc2a9b455778fc
+  SnapKit: f818b8326d45b4e1c777d0ab27b5c0a3624bfdeb
+  Socket.IO-Client-Swift: 136598e4a81a42b0e6855e7f94a0e5a6efdc5ff8
+
+PODFILE CHECKSUM: 44e2e773dd2c814d54243a6408ca184e44265bbc
+
+COCOAPODS: 1.1.0.rc.2
