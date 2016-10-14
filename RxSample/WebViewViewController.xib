@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewViewController" customModule="RxSample" customModuleProvider="target">
             <connections>
+                <outlet property="dismissButton" destination="PH4-Bg-N42" id="hp8-w9-rNc"/>
                 <outlet property="redoButton" destination="aiI-Fk-e75" id="wTE-Fu-MXm"/>
                 <outlet property="undoButton" destination="g8U-Cq-feD" id="rCY-SQ-VK8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -27,22 +28,10 @@
                     <items>
                         <navigationItem id="Lxg-3R-gm4">
                             <leftBarButtonItems>
-                                <barButtonItem enabled="NO" systemItem="undo" id="g8U-Cq-feD">
-                                    <connections>
-                                        <action selector="undoButtonClicked:" destination="-1" id="ajl-cY-DXA"/>
-                                    </connections>
-                                </barButtonItem>
-                                <barButtonItem enabled="NO" systemItem="redo" id="aiI-Fk-e75">
-                                    <connections>
-                                        <action selector="redoButtonClicked:" destination="-1" id="LQ0-Gg-gRK"/>
-                                    </connections>
-                                </barButtonItem>
+                                <barButtonItem enabled="NO" systemItem="undo" id="g8U-Cq-feD"/>
+                                <barButtonItem enabled="NO" systemItem="redo" id="aiI-Fk-e75"/>
                             </leftBarButtonItems>
-                            <barButtonItem key="rightBarButtonItem" systemItem="stop" id="PH4-Bg-N42">
-                                <connections>
-                                    <action selector="dismissButtonClicked:" destination="-1" id="RmA-1V-rZA"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" systemItem="stop" id="PH4-Bg-N42"/>
                         </navigationItem>
                     </items>
                 </navigationBar>
