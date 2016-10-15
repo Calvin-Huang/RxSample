@@ -8,41 +8,62 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
+import WebKit
+
 class WebViewViewController: UIViewController {
-    @IBOutlet var webView: UIWebView!
     @IBOutlet var undoButton: UIBarButtonItem!
     @IBOutlet var redoButton: UIBarButtonItem!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        webView.delegate = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    @IBOutlet var dismissButton: UIBarButtonItem!
     
-
-    @IBAction func dismissButtonClicked(_: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
+    let disposeBag = DisposeBag()
     
-    @IBAction func undoButtonClicked(_: AnyObject) {
-        webView.goBack()
-    }
+    lazy var webView: WKWebView = {
+        let webView = WKWebView(
+            frame: CGRect(
+                origin: CGPoint(x: 0, y: 64),
+                size: CGSize(width: self.view.bounds.width, height: self.view.bounds.height - 64)
+            )
+        )
+        
+        webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        self.view.addSubview(webView)
+        
+        webView.rx.canGoBack
+            .shareReplay(1)
+            .asDriver(onErrorJustReturn: false)
+            .drive(self.undoButton.rx.enabled)
+            .addDisposableTo(self.disposeBag)
+        
+        webView.rx.canGoForward
+            .shareReplay(1)
+            .asDriver(onErrorJustReturn: false)
+            .drive(self.redoButton.rx.enabled)
+            .addDisposableTo(self.disposeBag)
+        
+        self.undoButton.rx.tap
+            .subscribe { _ in self.webView.goBack() }
+            .addDisposableTo(self.disposeBag)
+        
+        self.redoButton.rx.tap
+            .subscribe { _ in self.webView.goForward() }
+            .addDisposableTo(self.disposeBag)
+        
+        self.dismissButton.rx.tap
+            .subscribe { _ in self.dismiss(animated: true, completion: nil) }
+            .addDisposableTo(self.disposeBag)
+        
+        return webView
+    }()
     
-    @IBAction func redoButtonClicked(_: AnyObject) {
-        webView.goForward()
-    }
-
-}
-
-extension WebViewViewController: UIWebViewDelegate {
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        undoButton.isEnabled = webView.canGoBack
-        redoButton.isEnabled = webView.canGoForward
+    var url: URL? {
+        didSet {
+            guard let url = url else { return }
+            
+            webView.load(URLRequest(url: url))
+        }
     }
 }

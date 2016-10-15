@@ -9,10 +9,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewViewController" customModule="RxSample" customModuleProvider="target">
             <connections>
+                <outlet property="dismissButton" destination="PH4-Bg-N42" id="hp8-w9-rNc"/>
                 <outlet property="redoButton" destination="aiI-Fk-e75" id="wTE-Fu-MXm"/>
                 <outlet property="undoButton" destination="g8U-Cq-feD" id="rCY-SQ-VK8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="webView" destination="83d-tQ-jBh" id="Uf6-2n-RrX"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -27,38 +27,19 @@
                     <items>
                         <navigationItem id="Lxg-3R-gm4">
                             <leftBarButtonItems>
-                                <barButtonItem enabled="NO" systemItem="undo" id="g8U-Cq-feD">
-                                    <connections>
-                                        <action selector="undoButtonClicked:" destination="-1" id="ajl-cY-DXA"/>
-                                    </connections>
-                                </barButtonItem>
-                                <barButtonItem enabled="NO" systemItem="redo" id="aiI-Fk-e75">
-                                    <connections>
-                                        <action selector="redoButtonClicked:" destination="-1" id="LQ0-Gg-gRK"/>
-                                    </connections>
-                                </barButtonItem>
+                                <barButtonItem enabled="NO" systemItem="undo" id="g8U-Cq-feD"/>
+                                <barButtonItem enabled="NO" systemItem="redo" id="aiI-Fk-e75"/>
                             </leftBarButtonItems>
-                            <barButtonItem key="rightBarButtonItem" systemItem="stop" id="PH4-Bg-N42">
-                                <connections>
-                                    <action selector="dismissButtonClicked:" destination="-1" id="RmA-1V-rZA"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" systemItem="stop" id="PH4-Bg-N42"/>
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83d-tQ-jBh">
-                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </webView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="83d-tQ-jBh" secondAttribute="trailing" id="GbN-0C-Vth"/>
                 <constraint firstAttribute="trailing" secondItem="zGu-Al-kEf" secondAttribute="trailing" id="a5H-H7-Fe8"/>
                 <constraint firstItem="zGu-Al-kEf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cuo-Um-dCk"/>
-                <constraint firstItem="83d-tQ-jBh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ehr-EI-D7e"/>
-                <constraint firstItem="83d-tQ-jBh" firstAttribute="top" secondItem="zGu-Al-kEf" secondAttribute="bottom" id="fzQ-5f-BgJ"/>
                 <constraint firstItem="zGu-Al-kEf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="onx-gh-3va"/>
-                <constraint firstAttribute="bottom" secondItem="83d-tQ-jBh" secondAttribute="bottom" id="zlO-bx-0kA"/>
             </constraints>
         </view>
     </objects>
