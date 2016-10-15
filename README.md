@@ -1,5 +1,6 @@
-# RxSample
-Simply show how Rx works instead of traditional cocoa development.
+RxSample
+=========
+![](https://travis-ci.org/Calvin-Huang/RxSample.svg?branch=master) ![swift-version](https://img.shields.io/badge/Swfit-3.0-orange.svg) ![platforms](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
 
 #### This repo is written for Cocoaheads at 2016/10/13 shows how RxSwift dramiclly simplify our works.
 
