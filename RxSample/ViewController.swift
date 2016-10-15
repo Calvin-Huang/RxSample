@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         }
     }
     
+    let browseURL: Variable<URL?> = Variable(nil)
     var repos: Driver<[Repo]> = Driver.just([])
     
     override func viewDidLoad() {
@@ -38,6 +39,16 @@ class ViewController: UIViewController {
         
         configureSearchBar()
         configureTableView()
+        
+        browseURL
+            .asObservable()
+            .subscribe(onNext: { [weak self] (url: URL?) in
+                let webViewController = WebViewViewController()
+                
+                webViewController.url = url
+                self?.present(webViewController, animated: true, completion: nil)
+            })
+            .addDisposableTo(disposeBag)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +61,8 @@ class ViewController: UIViewController {
         tableView.rowHeight = 74
         
         repos
-            .drive(tableView.rx.items(cellIdentifier: "\(RepoCell.self)", cellType: RepoCell.self)) { (_, model, cell) in
+            .drive(tableView.rx.items(cellIdentifier: "\(RepoCell.self)", cellType: RepoCell.self)) { [weak self] (_, model, cell) in
+                cell.browseURL = self?.browseURL
                 cell.model = model
             }
             .addDisposableTo(disposeBag)
