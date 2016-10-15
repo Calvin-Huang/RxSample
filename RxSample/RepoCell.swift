@@ -16,7 +16,7 @@ class RepoCell: UITableViewCell {
     @IBOutlet var browseButton: UIButton!
      
     var url: URL?
-    var browseURL: Variable<URL?>!
+    var viewModel: ViewModel!
     
     var disposeBag: DisposeBag?
     
@@ -30,7 +30,7 @@ class RepoCell: UITableViewCell {
             
             browseButton.rx.tap
                 .map { [weak self] _ in self?.url }
-                .bindTo(browseURL)
+                .bindTo(viewModel.browseURL)
                 .addDisposableTo(disposeBag)
             
             self.disposeBag = disposeBag

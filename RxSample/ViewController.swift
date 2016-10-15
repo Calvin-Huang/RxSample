@@ -18,9 +18,10 @@ class ViewController: UIViewController {
     @IBOutlet var navigationBar: UINavigationBar!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
-    
-    let disposeBag = DisposeBag()
 
+    let disposeBag = DisposeBag()
+    let viewModel = ViewModel()
+    
     var navigationBarTitle: String? {
         set {
             navigationBar.topItem?.title = newValue
@@ -31,16 +32,13 @@ class ViewController: UIViewController {
         }
     }
     
-    let browseURL: Variable<URL?> = Variable(nil)
-    var repos: Driver<[Repo]> = Driver.just([])
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureSearchBar()
         configureTableView()
         
-        browseURL
+        viewModel.browseURL
             .asObservable()
             .subscribe(onNext: { [weak self] (url: URL?) in
                 let webViewController = WebViewViewController()
@@ -60,9 +58,10 @@ class ViewController: UIViewController {
     private func configureTableView() {
         tableView.rowHeight = 74
         
-        repos
+        viewModel.repos
+            .asDriver()
             .drive(tableView.rx.items(cellIdentifier: "\(RepoCell.self)", cellType: RepoCell.self)) { [weak self] (_, model, cell) in
-                cell.browseURL = self?.browseURL
+                cell.viewModel = self?.viewModel
                 cell.model = model
             }
             .addDisposableTo(disposeBag)
@@ -83,29 +82,7 @@ class ViewController: UIViewController {
     }
     
     private func configureSearchBar() {
-        repos = searchBar.rx.text
-            .asDriver()
-            .throttle(0.3)
-            .distinctUntilChanged()
-            .flatMapLatest { query -> Driver<[Repo]> in
-                if query.isEmpty {
-                    return Driver.just([])
-                } else {
-                    return GitHubProvider.request(.searchRepo(query))
-                        .map { response -> [Repo] in
-                            guard
-                                let json = try? JSONSerialization.jsonObject(with: response.data) as? [String: Any],
-                                let items = json?["items"] as? [[String: Any]],
-                                let repos = Mapper<Repo>().mapArray(JSONArray: items)
-                            else {
-                                return []
-                            }
-                            
-                            return repos
-                        }
-                        .asDriver(onErrorJustReturn: [])
-                }
-            }
+        viewModel.query = searchBar.rx.text.asDriver()
     }
     
 }
