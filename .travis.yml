@@ -6,4 +6,4 @@ before_install:
    - sudo gem install cocoapods --no-ri --no-rdoc
    - pod repo update --silent
 
-script: xcodebuild -workspace RxSample.xcworkspace -scheme RxSample -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.0' -sdk iphonesimulator test
+script: xcodebuild -workspace RxSample.xcworkspace -scheme RxSample -destination 'platform=iOS Simulator,name=iPhone 6S,OS=10.0' -sdk iphonesimulator test
